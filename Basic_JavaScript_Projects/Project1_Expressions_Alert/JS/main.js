@@ -34,3 +34,7 @@ document.write(two + one);
 
 // This is an expression
 document.write(5 + 5);
+
+function firstFunction() {
+    window.alert("This alert pops up because of a function.")
+}
