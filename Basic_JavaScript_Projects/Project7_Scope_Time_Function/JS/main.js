@@ -2,9 +2,11 @@
 var a = 50;
 
 function func() {
-    // Assigns local variables
+    // Assigns local variables *EDIT: I forgot to nest it.*
     var b = 50;
-    var c = a + b;
+    function add() {
+        var c = a + b;
+    }
     document.getElementById("Scope_Time").innerHTML = c;
 }
 
