@@ -52,3 +52,5 @@ function colorCanvas2() {
     ctx.fillStyle = grd;
     ctx.fillRect(20, 20, 150, 100);
 }
+
+arrowFunc = () => document.getElementById("arrowText").innerHTML = "This is an arrow function.";
