@@ -41,9 +41,9 @@ function placeXOrO(squareNum) {
 
 // Checks which squares are selected and determines who won
 function checkWinCondition() {
-    if(arrayIncludes('0X', 'lX', '2X')) { drawWinLine (50, 100, 558, 100) }
+    if(arrayIncludes('0X', '1X', '2X')) { drawWinLine (50, 100, 558, 100) }
     else if(arrayIncludes('3X', '4X', '5X')) { drawWinLine (50, 304, 558, 304) }
-    else if(arrayIncludes('6X', '7X', '8X')) { drawwinLine (50, 508, 558, 508) }
+    else if(arrayIncludes('6X', '7X', '8X')) { drawWinLine (50, 508, 558, 508) }
     else if(arrayIncludes('0X', '3X', '6X')) { drawWinLine (100, 50, 100, 558) }
     else if(arrayIncludes('1X', '4X', '7X')) { drawWinLine (304, 50, 304, 558) }
     else if(arrayIncludes('2X', '5X', '8X')) { drawWinLine (508, 50, 508, 558) }
@@ -54,7 +54,7 @@ function checkWinCondition() {
     else if(arrayIncludes('60', '70', '80')) { drawWinLine (50, 508, 558, 508) }
     else if(arrayIncludes('00', '30', '60')) { drawWinLine (100, 50, 100, 558) }
     else if(arrayIncludes('10', '40', '70')) { drawWinLine (304, 50, 304, 558) }
-    else if(arrayIncludes('20', '50', '80')) { drawwinline (508, 50, 508, 558) }
+    else if(arrayIncludes('20', '50', '80')) { drawWinLine (508, 50, 508, 558) }
     else if(arrayIncludes('60', '40', '20')) { drawWinLine (100, 508, 510, 90) }
     else if(arrayIncludes('00', '40', '80')) { drawWinLine (100, 100, 520, 520) }
     else if(selectedSquares.length >= 9) {
@@ -86,28 +86,28 @@ function audio(audioURL) {
 function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     const canvas = document.getElementById('win-lines')
     const c = canvas.getContext('2d');
-    let xl = coordX1,
-        yl = coordY1,
+    let x1 = coordX1,
+        y1 = coordY1,
         x2 = coordX2,
         y2 = coordY2,
-        x = xl,
-        y = yl;
+        x = x1,
+        y = y1;
 
     function animateLineDrawing() {
         const animationLoop = requestAnimationFrame(animateLineDrawing);
         c.clearRect(0, 0, 608, 608)
         c.beginPath();
-        c.moveTo (xl, yl)
+        c.moveTo (x1, y1)
         c.lineTo(x, y)
         c.lineWidth = 10;
         c.strokeStyle = 'rgba(70, 255, 33, 0.8)';
         c.stroke();
-        if (xl <= x2 && yl <= y2) {
+        if (x1 <= x2 && y1 <= y2) {
             if (x < x2) { x += 10; }
             if (y < y2) { y += 10; }
             if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop); }
         }
-        if (xl <= x2 && yl >= y2) {
+        if (x1 <= x2 && y1 >= y2) {
             if (x < x2) { x += 10; }
             if (y > y2) { y == 10; }
             if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
