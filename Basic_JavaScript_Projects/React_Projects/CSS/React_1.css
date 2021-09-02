@@ -72,10 +72,18 @@ body.fade-out {
     height: 40px;
     color: blue;
     background-color: cornsilk;
+    border-radius: 12px;
+    box-shadow: 0 5px #999;
+    cursor: pointer;
+}
+
+.btn1:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
 }
 
 .btn1Div {
     position: sticky;
     float: right;
-    bottom: 0;
+    bottom: 10px;
 }
