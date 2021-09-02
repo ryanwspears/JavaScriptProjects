@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="./react.js"></script>
+        <script src="./react-dom.js"></script>
+        <script src="./JS/React_1.js"></script>
+        <link rel="stylesheet" type="text/css" href="./CSS/React_1.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+        <script>
+          // Challenge 8
+          $(document).ready(function(){
+            $("#slideshow > div:gt(0)").hide();
+    
+            setInterval(function() { 
+              $('#slideshow > div:first')
+              .fadeOut(1000)
+              .next()
+              .fadeIn(1000)
+              .end()
+              .appendTo('#slideshow');
+            }, 3000);
+          });
+        </script>
+    </head>
+    <!--Challenge 7: Bookmarks and Smooth Scroll-->
+    <header>
+      <a href="#sec1">Section 1</a> |
+      <a href="#sec2">Section 2</a> |
+      <a href="#sec3">Section 3</a> |
+      <a href="#sec4">Section 4</a>
+    </header>
+    <body>
+        <div id="sec1">
+          <h1>Section 1</h1>
+        </div>
+
+        <!--Challenge 8: Automatic Slideshow-->
+        <div id="slideshow">
+          <div>
+            <img src="./Images/img1.jpg" alt="Unable to load image.">
+          </div>
+          <div>
+            <img src="./Images/img2.jpg" alt="Unable to load image.">
+          </div>
+          <div>
+            <img src="./Images/img3.jpg" alt="Unable to load image.">
+          </div>
+        </div>
+
+        <!--Challenge 2: Fade ==== Uses React_1.css-->
+        <script>
+            document.body.classList.add('fade-out');
+
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.remove('fade-out');
+            });
+        </script>
+        <!--Challenge 1: Used the vw unit-->
+        <div id="React_Code" style="font-size:3vw;"></div>
+        <script>
+            var Counter = React.createClass({
+                render: function() {
+                    var timePassed = Math.round(this.props.timePassed / 100);
+                    var secondsPassed = timePassed / 10 + (timePassed % 10 ? '' : '.0');
+                    var text = 'My React code started running ' + secondsPassed + ' seconds ago.';
+                    return React.DOM.p(null, text);
+                }
+            });
+
+            var counterFactory = React.createFactory(Counter);
+
+            var startCounting = new Date().getTime();
+            setInterval(function() {
+                ReactDOM.render(
+                    counterFactory({timePassed: new Date().getTime() - startCounting}),
+                    document.getElementById("React_Code")
+                );
+            }, 50);
+        </script>
+        <div>
+            <!--Challenge 3: Form ==== Uses React_1.js-->
+            <form class="contactForm" name="form">
+                <h4>Contact</h4>
+                <input type="text" id="name" name="name" placeholder="Name" required><br>
+                <input type="text" id="pnumber" name="pnumber" placeholder="Phone Number" required><br>
+                <br>
+                <button class="btn" onclick="return validate()">Submit</button>
+              </form>
+        </div>
+
+        <div id="sec2">
+          <h1>Section 2</h1>
+        </div>
+
+        <!--Challenge 4: Popup Contact Form-->
+        <div class="jumbotron jumbotron-fluid bg-info mt-5 text-center">
+            <div class="container">
+              <h1 class="display-4 hidden-sm-down" style="color: #fff; font-family: roboto; font-weight: 900; text-transform: uppercase;">Contact</h1>
+              <p class="lead">Contact us today!</p>
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#register">Contact Us</button>
+            </div>
+        </div>
+      
+        <div class="modal" tabindex="-1" role="dialog" id="register">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Contact Us</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <fieldset class="form-group">
+                      <label for="firstname">First Name:</label>
+                      <input type="text" class="form-control" id="firstname" placeholder="First Name...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                      <label for="lastname">Last Name:</label>
+                      <input type="text" class="form-control" id="lastname" placeholder="Last Name...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="text" class="form-control" id="email" placeholder="Email...">
+                    </fieldset>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Contact</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!--End Challenge 4-->
+
+        <div id="sec3">
+          <h1>Section 3</h1>
+        </div>
+
+        <!--Challenge 6: Zoom in and out-->
+        <div class="image">
+            <img src="https://www.tvovermind.com/wp-content/uploads/2018/03/Tokyo-Ghoul.jpg" style="width: 300px; height: 150px;">
+        </div>
+
+
+        <div id="sec4">
+          <h1>Section 4</h1>
+        </div>
+
+        <!--Challenge 5: Animation ==== Uses React_1.css-->
+        <div class="animation">
+            <h2>Line of text.</h2>
+        </div>
+
+        <!--Challenge 9: Sticky Button-->
+        <div class="btn1Div">
+          <button class="btn1">Contact</button>
+        </div>
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+    <footer>
+      Ryan Spears &copy; 2021
+    </footer>
+</html>

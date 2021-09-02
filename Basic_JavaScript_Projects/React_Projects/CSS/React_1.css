@@ -1,0 +1,81 @@
+/*Challenge 7*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*Challenge 1*/
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+  
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
+
+/*Challenge 5*/
+@keyframes animate {
+    from{top: 0px;}
+    to{top: 100px;}
+}
+
+.animation {
+    position: relative;
+    animation: animate 5s infinite;
+}
+
+/*Challenge 6*/
+@keyframes animate2 {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.2,1.2);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+.image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image:hover {
+    animation: animate2 15s forwards;
+}
+
+/*Challenge 8*/
+#slideshow { 
+    margin: 50px auto; 
+    position: relative; 
+    width: 480px; 
+    height: 240px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+  
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
+
+/*Challenge 9*/
+.btn1 {
+    width: 80px;
+    height: 40px;
+    color: blue;
+    background-color: cornsilk;
+}
+
+.btn1Div {
+    position: sticky;
+    float: right;
+    bottom: 0;ss
+}
